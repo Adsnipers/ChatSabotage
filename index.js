@@ -17,16 +17,16 @@ const client = new tmi.Client({
     channels: ['adsnipers']
 });
 
-client.connect().catch(console.error)
+client.connect();
 
-client.on('connect', (channel, tags, message, self) => {
-    client.say('#adsnipers', 'Chat sabotage by Adsnipers is running, use !sabotage to get started!');
+client.on('connected', (channel) => {
+    client.say('#adsnipers', 'Chat sabotage by Adsnipers is running, use !sabotage to get started!')
 })
 
 client.on('message', (channel, tags, message, self) => {
     if (self) return;
     if (message.toLowerCase() === '!sabotage') {
-        client.say(channel, 'Sabotage commands are: !w\r !s \r !a \r !d \r !esc \r !e \r !q \r !r \r !space | use these commands to press the corrosponding buttons on my keyboard')
+        client.say(channel, 'Sabotage commands are: !w \r !s \r !a \r !d \r !esc \r !e \r !q \r !r \r !g \r !1 \r !2 \r !space | use these commands to press the corrosponding buttons on my keyboard')
     }
     commandDetect(message);
 });
@@ -55,6 +55,15 @@ async function commandDetect(message) {
     }
     if (message.toLowerCase() === '!r') {
         robot.keyTap('r')
+    }
+    if (message.toLowerCase() === '!g') {
+        robot.keyTap('g')
+    }
+    if (message.toLowerCase() === '!1') {
+        robot.keyTap('1')
+    }
+    if (message.toLowerCase() === '!2') {
+        robot.keyTap('2')
     }
     if (message.toLowerCase() === '!space') {
         robot.keyTap('space');
