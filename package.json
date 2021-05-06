@@ -9,7 +9,7 @@
   "author": "Adsnipers",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^8.2.0",
+    "dotenv": "^8.6.0",
     "robotjs": "^0.6.0",
     "tmi.js": "^1.7.5"
   }
